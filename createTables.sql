@@ -3,8 +3,8 @@ CREATE TABLE groupe(
   id SERIAL PRIMARY KEY,
   name varchar(200) NOT NULL,
   image varchar(200),
-  created_at TIMESTAMP,
-  updated_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
@@ -12,8 +12,8 @@ CREATE TABLE roles(
   id SERIAL PRIMARY KEY,
   groupe_id BIGINT,
   role varchar(200),
-  created_at TIMESTAMP,
-  updated_at TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE users(
@@ -22,8 +22,8 @@ CREATE TABLE users(
     pseudo varchar(200) NOT NULL,
     image varchar(200),
     email varchar(200) NOT NULL,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
@@ -35,8 +35,8 @@ CREATE TABLE posts(
     content TEXT NOT NULL,
     image varchar(200),
     tags varchar(200),
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
@@ -54,8 +54,8 @@ CREATE TABLE like_posts(
 CREATE TABLE follow(
   user_follow BIGINT,
   user_followed BIGINT,
-  created_at TIMESTAMP,
-  updated_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT fk_user_follow
   FOREIGN KEY(user_follow)
   REFERENCES users(id) ON DELETE CASCADE,

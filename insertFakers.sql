@@ -87,7 +87,7 @@ VALUES
         CURRENT_TIMESTAMP
     ),
     (
-        11,
+        2,
         'Eare1970',
         'image_profil.png',
         'ZaraLeblanc@cuvox.de',
@@ -95,7 +95,7 @@ VALUES
         CURRENT_TIMESTAMP
     ),
     (
-        12,
+        4,
         'Inely1953',
         'image_profil.png',
         'LianeLamontagne@jourrapide.com',
@@ -103,7 +103,7 @@ VALUES
         CURRENT_TIMESTAMP
     ),
     (
-        12,
+        3,
         'Youncle',
         'image_profil.png',
         'OdeletteDaoust@einrot.com',
@@ -111,7 +111,7 @@ VALUES
         CURRENT_TIMESTAMP
     ),
     (
-        10,
+        2,
         'Frocarephey',
         'image_profil.png',
         'TheophileDagenais@einrot.com',
@@ -119,7 +119,7 @@ VALUES
         CURRENT_TIMESTAMP
     ),
     (
-        12,
+        4,
         'Andurn1973',
         'image_profil.png',
         'DonatienLaramee@teleworm.us',
@@ -127,7 +127,7 @@ VALUES
         CURRENT_TIMESTAMP
     ),
     (
-        13,
+        10,
         'Maked2000',
         'image_profil.png',
         'VivienneBousquet@armyspy.com',
@@ -135,7 +135,7 @@ VALUES
         CURRENT_TIMESTAMP
     ),
     (
-        12,
+        8,
         'Nowde1953',
         'image_profil.png',
         'ArthurFournier@fleckens.hu',
@@ -143,7 +143,7 @@ VALUES
         CURRENT_TIMESTAMP
     ),
     (
-        10,
+        2,
         'Anwave',
         'image_profil.png',
         'ThibautGarcia@dayrep.com',
@@ -165,7 +165,7 @@ INSERT INTO
 VALUES
     (
         NULL,
-        27,
+        12,
         3,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -177,7 +177,7 @@ VALUES
     ),
     (
         NULL,
-        30,
+        15,
         2,
         'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
          Excepteur sint occaecat cupidatat non proident',
@@ -188,7 +188,7 @@ VALUES
     ),
     (
         NULL,
-        29,
+        20,
         1,
         'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
          eu fugiat nulla pariatur.',
@@ -199,7 +199,7 @@ VALUES
     ),
     (
         NULL,
-        30,
+        13,
         NULL,
         'Voluptate velit esse cillum dolore eu fugiat nulla pariatur.
          Excepteur ',
@@ -210,7 +210,7 @@ VALUES
     ),
     (
         NULL,
-        32,
+        14,
         NULL,
         'Excepteur sint occaecat cupidatat non proident',
          'image3.png', 
@@ -222,20 +222,20 @@ VALUES
     INSERT INTO follow (user_follow, user_followed, created_at, updated_at) 
     VALUES 
     (
-        26,
-        28,
+        12,
+        20,
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP
     ),
     (
-        27,
-        30,
+        14,
+        16,
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP
     ),
     (
-        35,
-        33,
+        19,
+        20,
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP
     );
@@ -243,30 +243,30 @@ VALUES
 INSERT INTO like_posts (user_id, post_id)
 VALUES
 (
-    26,
-    17
+    12,
+    7
 ),
 (
-    30,
-    18
+    15,
+    8
 ),
 (
-    28,
-    19
+    11,
+    9
 ),
 (
-    31,
-    20
+    16,
+    9
 ),
 (
-    30,
-    19
+    12,
+    10
 ),
 (
-    27,
-    19
+    18,
+    10
 ),
 (
-    30,
-    17
+    13,
+    10
 );
