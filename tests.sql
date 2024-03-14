@@ -91,7 +91,7 @@ RIGHT JOIN users uf ON f.user_follow = uf.id
 RIGHT JOIN users uf2 ON f.user_followed = uf2.id
 GROUP BY uf2.id;
 
--- filtrer des auteurs (par exemple dont le pseudo commence par un 'd')
+-- filtrer des auteurs (par exemple dont le pseudo commence par un 'B')
 
 SELECT pseudo
 FROM users
@@ -167,5 +167,16 @@ FROM users_groupe ug
 JOIN users  ON users.id = ug.user_id
 JOIN groupe g ON g.id = ug.groupe_id
 GROUP BY g.name; 
+
+-- Afficher les users et leurs roles dans le groupe
+
+SELECT ug.user_id AS users, g.name AS name_groupe, r.role AS role
+FROM users_groupe ug
+JOIN users  ON users.id = ug.user_id
+JOIN groupe g ON g.id = ug.groupe_id
+JOIN roles r ON r.id= ug.role_id;
+
+-- Afficher le fil d'actualité avec les commentaires les plus récents et les plus likés 
+
 
 

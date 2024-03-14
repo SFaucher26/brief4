@@ -1,0 +1,17 @@
+Réunion de fin de projet le 14/03/2024
+
+Personne en charge du projet :
+Marie Tranchant 
+
+Conceptualisaion :
+Methode Merise
+Schéma très complet avec la gestion des réactions, des followers, des commentaires et même des formats d'images
+dans une table spécifique. 
+
+Insertion des données :
+Tout est bien inséré, Marie maitrîse le language SQL. 
+
+Test des requêtes :
+Toutes les requêtes répondent au besoin de l'application pour le minimum valuable product. 
+
+

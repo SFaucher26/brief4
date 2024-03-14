@@ -3,6 +3,7 @@ CREATE TABLE groupe(
   id SERIAL PRIMARY KEY,
   name varchar(200) NOT NULL,
   image varchar(200),
+  public boolean,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
