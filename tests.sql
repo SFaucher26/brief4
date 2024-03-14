@@ -61,10 +61,11 @@ VALUES (
 
 -- Afficher les commmentaires avec leurs like
 
-SELECT posts.content AS commentaire, like_posts.post_id AS id_like
+SELECT posts.content AS commentaire, count(like_posts.post_id) AS id_like
 FROM posts 
 INNER JOIN like_posts
-ON like_posts.post_id = posts.id;
+ON like_posts.post_id = posts.id
+GROUP BY posts.content;
 
 -- Afficher le pseudo des followers et des followed
 
@@ -127,8 +128,44 @@ SELECT to_char(created_at, 'dd-mm-yyyy')
 FROM posts
 WHERE to_char(created_at, 'dd-mm-yyyy') LIKE '14%';
 
--- créer un nouveau groupe 
-
-
-
+-- créer un groupe 
+INSERT INTO groupe (name, image)
+VALUES 
+(
+    'Super Testeur',
+    'imageTesteur.png'
+);
   
+-- insérer des users et désigner des roles dans le groupe
+
+INSERT INTO users_groupe (user_id, role_id, groupe_id)
+VALUES (
+    13,
+    11,
+    9
+),
+(
+    14,
+    12,
+    9
+),
+(
+    15,
+    14,
+    9
+),
+(
+    18,
+    14,
+    9
+);
+
+-- Affichage des groupes 
+
+SELECT count(ug.user_id) AS users, g.name AS name_groupe
+FROM users_groupe ug
+JOIN users  ON users.id = ug.user_id
+JOIN groupe g ON g.id = ug.groupe_id
+GROUP BY g.name; 
+
+

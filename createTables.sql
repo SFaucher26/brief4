@@ -10,7 +10,6 @@ CREATE TABLE groupe(
 
 CREATE TABLE roles(
   id SERIAL PRIMARY KEY,
-  groupe_id BIGINT,
   role varchar(200),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -26,6 +25,20 @@ CREATE TABLE users(
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE users_groupe(
+  user_id BIGINT,
+  role_id BIGINT,
+  groupe_id BIGINT,
+  CONSTRAINT fk_users
+  FOREIGN KEY(user_id)
+  REFERENCES users(id) ON DELETE SET NULL,
+  CONSTRAINT fk_roles
+  FOREIGN KEY(role_id)
+  REFERENCES roles(id) ON DELETE SET NULL,
+  CONSTRAINT fk_groupe
+  FOREIGN KEY(groupe_id)
+  REFERENCES groupe(id) ON DELETE SET NULL
+);
 
 CREATE TABLE posts(
     id SERIAL PRIMARY KEY,

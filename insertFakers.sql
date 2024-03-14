@@ -151,6 +151,54 @@ VALUES
         CURRENT_TIMESTAMP
     );
 
+INSERT INTO 
+users_groupe(
+    user_id,
+    role_id,
+    groupe_id
+)
+VALUES
+(
+    13,
+    13,
+    3
+),
+(
+    12,
+    14,
+    2
+),
+(
+    15,
+    12,
+    4
+),
+(
+    14,
+    11,
+    4
+),
+(
+    16,
+    13,
+    2
+),
+(
+    16,
+    14,
+    3
+),
+(
+    12,
+    11,
+    1
+),
+(
+    17,
+    14,
+    1
+);
+
 INSERT INTO
     posts (
         post_id,
