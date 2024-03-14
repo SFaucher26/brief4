@@ -1,11 +1,3 @@
--- récupérer les posts les plus likés 
-SELECT
-    post_id,
-    count(user_id)
-FROM
-    like_posts
-GROUP BY
-    post_id;
 
 -- création d'un profil / update / delete
 INSERT INTO
@@ -74,13 +66,69 @@ FROM posts
 INNER JOIN like_posts
 ON like_posts.post_id = posts.id;
 
--- Affichage des followers 
+-- Afficher le pseudo des followers et des followed
 
 SELECT uf.pseudo AS follower_pseudo, uf2.pseudo AS followed_pseudo
 FROM follow f
 JOIN users uf ON f.user_follow = uf.id
 JOIN users uf2 ON f.user_followed = uf2.id;
 
+-- Afficher le nombre de follow pour une personne suivie 
+
+SELECT count(uf.id) AS follower_id, uf2.pseudo AS followed_pseudo
+FROM follow f
+RIGHT JOIN users uf ON f.user_follow = uf.id
+RIGHT JOIN users uf2 ON f.user_followed = uf2.id
+GROUP BY uf2.id;
+
+-- création d'une view pour ne pas recommencer la requete à chaque fois
+
+CREATE VIEW followers AS
+SELECT count(uf.id) AS follower_id, uf2.pseudo AS followed_pseudo
+FROM follow f
+RIGHT JOIN users uf ON f.user_follow = uf.id
+RIGHT JOIN users uf2 ON f.user_followed = uf2.id
+GROUP BY uf2.id;
+
+-- filtrer des auteurs (par exemple dont le pseudo commence par un 'd')
+
+SELECT pseudo
+FROM users
+WHERE pseudo LIKE 'B%';
+
+-- filtrer par mots clés 
+
+SELECT tags
+FROM posts
+WHERE tags IS NOT NULL;
+
+-- récupérer les posts les plus likés 
+SELECT
+    post_id,
+    count(user_id)
+FROM
+    like_posts
+GROUP BY
+    post_id;
+
+
+-- récupérer les posts les plus récents 
+
+SELECT content FROM posts ORDER BY created_at DESC;
+
+-- trier des posts par mots clés
+
+SELECT content FROM posts 
+WHERE content LIKE '%uis%';
+
+-- récupérer un post par sa date 
+
+SELECT to_char(created_at, 'dd-mm-yyyy')
+FROM posts
+WHERE to_char(created_at, 'dd-mm-yyyy') LIKE '14%';
+
+-- créer un nouveau groupe 
 
 
 
+  
