@@ -67,6 +67,22 @@ INNER JOIN like_posts
 ON like_posts.post_id = posts.id
 GROUP BY posts.content;
 
+-- Afficher le fil d'actualités avec les commentaires les plus récents et les plus likés
+CREATE VIEW fil_actu AS
+SELECT 
+posts.content AS commentaire, 
+posts.created_at AS date, 
+COUNT(like_posts.post_id) AS id_like 
+FROM 
+posts 
+INNER JOIN 
+like_posts ON like_posts.post_id = posts.id 
+GROUP BY 
+posts.content, posts.created_at
+ORDER BY 
+id_like DESC, date DESC;
+
+
 -- Afficher le pseudo des followers et des followed
 
 SELECT uf.pseudo AS follower_pseudo, uf2.pseudo AS followed_pseudo
@@ -176,7 +192,49 @@ JOIN users  ON users.id = ug.user_id
 JOIN groupe g ON g.id = ug.groupe_id
 JOIN roles r ON r.id= ug.role_id;
 
--- Afficher le fil d'actualité avec les commentaires les plus récents et les plus likés 
+-- Afficher les users qui appartiennent à un groupe avec leurs posts
 
 
+SELECT 
+u.pseudo AS Utilisateur,
+g.name AS groupeName,
+p.content AS postUtilisateur
+FROM 
+users u
+JOIN 
+posts p ON u.id = p.user_id
+JOIN 
+users_groupe ug ON u.id = ug.user_id
+JOIN 
+groupe g ON ug.groupe_id = g.id;
 
+-- Afficher tous les users pour visualiser 
+-- ceux qui appartiennent à un groupe ou non
+
+SELECT 
+u.pseudo AS Utilisateur,
+COALESCE(g.name, 'Aucun groupe') AS Nom_groupe,
+p.content AS post_utilisateur
+FROM 
+users u
+JOIN 
+posts p ON u.id = p.user_id
+LEFT JOIN 
+users_groupe ug ON u.id = ug.user_id
+LEFT JOIN 
+groupe g ON ug.groupe_id = g.id;
+
+-- paginer les posts 
+-- page 1
+SELECT * FROM posts
+WHERE post_id IS NULL
+LIMIT 5 OFFSET 0;
+
+-- page 2 
+SELECT * FROM posts
+WHERE post_id IS NULL
+LIMIT 5 OFFSET 5;
+
+-- récupérer les commentaires de posts 
+SELECT * FROM posts 
+WHERE post_id IS NOT NULL;
