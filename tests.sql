@@ -1,3 +1,4 @@
+-- TESTS DES REQUETES POUR LA REALISATION DU RESEAU SOCIAL
 
 -- création d'un profil / update / delete
 INSERT INTO
@@ -209,7 +210,8 @@ JOIN
 groupe g ON ug.groupe_id = g.id;
 
 -- Afficher tous les users pour visualiser 
--- ceux qui appartiennent à un groupe ou non
+-- ceux qui appartiennent à un groupe ou non (afin de gérer)
+-- le mode privé / public
 
 SELECT 
 u.pseudo AS Utilisateur,

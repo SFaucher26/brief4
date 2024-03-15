@@ -5,11 +5,16 @@ Marie Tranchant
 
 Conceptualisaion :
 Methode Merise
-Schéma très complet avec la gestion des réactions, des followers, des commentaires et même des formats d'images
+Schéma très complet avec la gestion des réactions, des followers,
+des commentaires, choix d'une table pour gérer les formats d'images
 dans une table spécifique. 
 
 Insertion des données :
-Tout est bien inséré, Marie maitrîse le language SQL. 
+Utilisation de postgres comme SGBD
+Tout est bien inséré, Marie maitrîse le language SQL.
+Les view réalisées sont explicites et vont pouvoir aider le développeur
+fullstack dans sa partie du travail. 
+Elle a utilisé fake name générator pour le jeu de données. 
 
 Test des requêtes :
 Toutes les requêtes répondent au besoin de l'application pour le minimum valuable product. 
